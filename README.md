@@ -2,9 +2,11 @@
 
 Herramienta de terminal para descargar videos y audio de YouTube de forma sencilla y rápida.
 
-![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)
+![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
-![Platform](https://img.shields.io/badge/Platform-Windows%20|%20Linux%20|%20Mac-lightgrey.svg)
+![Platform](https://img.shields.io/badge/Platform-Ubuntu%2024.04%20|%20Windows%20|%20Mac-lightgrey.svg)
+
+---
 
 ## Características
 
@@ -16,10 +18,17 @@ Herramienta de terminal para descargar videos y audio de YouTube de forma sencil
 - **Verificación de FFmpeg** - Detecta si FFmpeg está instalado antes de convertir
 - **Interfaz en Español** - Diseñada completamente en español
 
+---
+
 ## Requisitos
 
-- Python 3.7 o superior
-- FFmpeg (requerido para conversión a MP3)
+| Requisito | Versión |
+|-----------|---------|
+| Python | 3.8 o superior |
+| FFmpeg | Última versión estable |
+| pip | Incluido con Python |
+
+---
 
 ## Instalación
 
@@ -30,30 +39,60 @@ git clone https://github.com/Emmanuel-man/EJ.YTMedia.git
 cd EJ.YTMedia
 ```
 
-### 2. Instalar dependencias
+### 2. Crear entorno virtual (Recomendado para Ubuntu 24.04+)
+
+Ubuntu 24.04 y versiones recientes usan `externally-managed-environment`, por lo que es necesario usar un entorno virtual:
 
 ```bash
-pip install yt-dlp
+# Crear el entorno virtual
+python3 -m venv venv
+
+# Activar el entorno virtual
+source venv/bin/activate
 ```
 
-### 3. Instalar FFmpeg
+> **Nota:** En Windows, usa `venv\Scripts\activate` en lugar de `source venv/bin/activate`.
+
+### 3. Instalar dependencias
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Instalar FFmpeg
+
+FFmpeg es necesario para la conversión a MP3.
 
 **Ubuntu/Debian:**
 ```bash
+sudo apt update
 sudo apt install ffmpeg
 ```
 
 **Windows:**
-Descarga desde [ffmpeg.org](https://ffmpeg.org/download.html) y agrega al PATH.
+1. Descarga desde [ffmpeg.org](https://ffmpeg.org/download.html)
+2. Extrae el archivo ZIP
+3. Agrega la carpeta `bin` al PATH del sistema
 
-**Mac:**
+**Mac (con Homebrew):**
 ```bash
 brew install ffmpeg
 ```
 
+**Verificar instalación:**
+```bash
+ffmpeg -version
+```
+
+---
+
 ## Uso
 
 ```bash
+# Asegúrate de activar el entorno virtual primero
+source venv/bin/activate
+
+# Ejecutar el programa
 python ejytmedia.py
 ```
 
@@ -64,6 +103,8 @@ python ejytmedia.py
 3. Espera a que termine la descarga
 
 Los archivos se guardan en: `~/Descargas/EJ-YTMedia/`
+
+---
 
 ## Capturas de Pantalla
 
@@ -79,6 +120,8 @@ Los archivos se guardan en: `~/Descargas/EJ-YTMedia/`
 +===========================================================================+
 ```
 
+---
+
 ## Contribuir
 
 Las contribuciones son bienvenidas. Para cambios importantes:
@@ -89,9 +132,13 @@ Las contribuciones son bienvenidas. Para cambios importantes:
 4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
 5. Abre un Pull Request
 
+---
+
 ## Licencia
 
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
+
+---
 
 ## Autor
 
